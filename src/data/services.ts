@@ -1,0 +1,58 @@
+import type { Service } from '../types'
+
+export const services: Service[] = [
+  {
+    id: 1,
+    title: 'Software Development',
+    description: 'Custom software solutions adapted to your specific business needs — mobile (Android & iOS), desktop, and enterprise applications built to last.',
+    features: ['Mobile Apps', 'Desktop Applications', 'Enterprise Software', 'API Development'],
+    colour: 'bg-blue-50',
+    accentColour: '#1A3C6E',
+    icon: 'Code2',
+  },
+  {
+    id: 2,
+    title: 'Web Design & Development',
+    description: 'World-class web applications and business websites that bring your ideas to life and help you achieve your digital goals effectively.',
+    features: ['Business Websites', 'Web Applications', 'E-Commerce', 'CMS Solutions'],
+    colour: 'bg-sky-50',
+    accentColour: '#0F9BD7',
+    icon: 'Globe',
+  },
+  {
+    id: 3,
+    title: 'Digital Marketing',
+    description: 'Comprehensive digital marketing strategies to grow your online presence and reach your target audience across Nigeria and beyond.',
+    features: ['SEO & SEM', 'Social Media Marketing', 'Email Campaigns', 'Content Strategy'],
+    colour: 'bg-indigo-50',
+    accentColour: '#4F46E5',
+    icon: 'TrendingUp',
+  },
+  {
+    id: 4,
+    title: 'Graphics & Branding',
+    description: "Professional visual identity design that communicates your brand's story, values, and uniqueness clearly to your audience.",
+    features: ['Logo Design', 'Brand Identity', 'Print Design', 'UI/UX Design'],
+    colour: 'bg-purple-50',
+    accentColour: '#9333EA',
+    icon: 'Palette',
+  },
+  {
+    id: 5,
+    title: 'IT Training',
+    description: 'Industry-focused tech training programmes designed to kickstart or accelerate your career in software, web, and digital marketing.',
+    features: ['Frontend Development', 'Backend Development', 'Digital Marketing', 'Graphics Design'],
+    colour: 'bg-green-50',
+    accentColour: '#16A34A',
+    icon: 'GraduationCap',
+  },
+  {
+    id: 6,
+    title: 'IT Support & Consulting',
+    description: 'Expert IT consulting and support to help your business leverage technology for maximum efficiency and growth.',
+    features: ['System Setup', 'Tech Consulting', 'Database Management', 'Maintenance'],
+    colour: 'bg-orange-50',
+    accentColour: '#EA580C',
+    icon: 'Settings',
+  },
+]

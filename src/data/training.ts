@@ -1,0 +1,58 @@
+import type { TrainingCourse } from '../types'
+
+export const courses: TrainingCourse[] = [
+  {
+    id: 1,
+    title: 'Frontend Web Development Bootcamp',
+    category: 'Web Development',
+    duration: '3 months',
+    level: 'Beginner',
+    topics: ['HTML5', 'CSS3', 'JavaScript', 'React', 'TypeScript'],
+    isFeatured: true,
+  },
+  {
+    id: 2,
+    title: 'Full-Stack Web Development',
+    category: 'Web Development',
+    duration: '6 months',
+    level: 'Intermediate',
+    topics: ['React', 'Node.js', 'Express', 'MongoDB', 'REST APIs'],
+    isFeatured: true,
+  },
+  {
+    id: 3,
+    title: 'Mobile App Development',
+    category: 'Mobile',
+    duration: '4 months',
+    level: 'Intermediate',
+    topics: ['React Native', 'Android', 'iOS', 'Firebase'],
+    isFeatured: false,
+  },
+  {
+    id: 4,
+    title: 'Digital Marketing Mastery',
+    category: 'Digital Marketing',
+    duration: '2 months',
+    level: 'Beginner',
+    topics: ['SEO', 'Social Media', 'Google Ads', 'Email Marketing', 'Analytics'],
+    isFeatured: false,
+  },
+  {
+    id: 5,
+    title: 'Graphics Design Professional',
+    category: 'Graphics',
+    duration: '3 months',
+    level: 'Beginner',
+    topics: ['Photoshop', 'Illustrator', 'Figma', 'Brand Identity'],
+    isFeatured: false,
+  },
+  {
+    id: 6,
+    title: 'Software Development (Python)',
+    category: 'Software',
+    duration: '4 months',
+    level: 'Intermediate',
+    topics: ['Python', 'Django', 'PostgreSQL', 'APIs', 'Deployment'],
+    isFeatured: false,
+  },
+]
