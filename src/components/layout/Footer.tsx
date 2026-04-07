@@ -1,5 +1,7 @@
 import React from 'react'
 import { MapPin, Phone, Mail, Globe, MessageSquare } from 'lucide-react'
+import logo from '../../assets/logo.png'
+
 
 
 const serviceLinks = [
@@ -41,7 +43,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-4">
 
               <img
-                src={"/public/image.png"}
+                src={logo}
                 alt="MetroBlue Logo"
                 className="h-13 w-auto"
               />

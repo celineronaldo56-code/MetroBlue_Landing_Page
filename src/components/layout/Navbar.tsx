@@ -14,6 +14,7 @@ import { useActiveSection } from "../../hooks/useActiveSection"
 import type { NavLink } from "../../types"
 
 // Import the MetroBlue logo image
+import logo from "../../assets/logo.png"
 
 
 
@@ -101,7 +102,7 @@ export const Navbar: React.FC = () => {
         >
 
           <img
-            src={"/public/image.png"}
+            src={logo}
             alt="MetroBlue Logo"
             className="h-15 w-auto object-contain"
           />
