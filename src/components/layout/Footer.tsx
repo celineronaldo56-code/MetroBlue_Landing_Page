@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               <img
                 src={"/public/image.png"}
                 alt="MetroBlue Logo"
-                className="h-10 w-auto"
+                className="h-13 w-auto"
               />
 
             </div>
