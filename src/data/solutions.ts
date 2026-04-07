@@ -18,7 +18,7 @@ export const solutions: Solution[] = [
     ctaText: 'Get Educesol for Your School',
     ctaHref: '#contact',
     badge: 'Education',
-    badgeColour: 'bg-green-100 text-green-700',
+    badgeColour: 'bg-green-500 text-green-700',
     imageAlt: 'Educesol school management platform dashboard',
   },
   {

@@ -9,8 +9,8 @@ import { Button } from '../ui/Button'
 const floatingCards = [
   { icon: Code2,      label: 'Software Dev',  colour: 'bg-blue-500',   delay: 0    },
   { icon: Globe,      label: 'Web Solutions', colour: 'bg-secondary',  delay: 0.3  },
-  { icon: TrendingUp, label: 'Digital Mktg',  colour: 'bg-indigo-500', delay: 0.6  },
-  { icon: Palette,    label: 'Branding',      colour: 'bg-purple-500', delay: 0.9  },
+  { icon: TrendingUp, label: 'Digital Mktg',  colour: 'bg-green-500', delay: 0.6  },
+  { icon: Palette,    label: 'Branding',      colour: 'bg-green-500', delay: 0.9  },
 ]
 
 const trustItems = [
@@ -47,7 +47,7 @@ export const Hero: React.FC = () => (
             className="heading-display text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.1] mb-6"
           >
             We Build{' '}
-            <span className="text-secondary relative">
+            <span className="text-green-500 relative">
               Technology
               <svg
                 className="absolute -bottom-1 left-0 w-full"
