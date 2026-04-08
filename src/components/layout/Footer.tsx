@@ -1,6 +1,6 @@
 import React from 'react'
 import { MapPin, Phone, Mail, Globe, MessageSquare } from 'lucide-react'
-import logo from '../../assets/logo.png'
+
 
 
 
@@ -42,11 +42,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-3 mb-4">
 
-              <img
-                src={logo}
-                alt="MetroBlue Logo"
-                className="h-10 w-auto"
-              />
+              <img src="public/image/logo.png" alt="Logo" className="h-12 w-auto" />
 
             </div>
 
