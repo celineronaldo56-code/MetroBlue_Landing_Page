@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
           <img
             src={logo}
             alt="MetroBlue Logo"
-            className="h-15 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
 
         

@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
               <img
                 src={logo}
                 alt="MetroBlue Logo"
-                className="h-13 w-auto"
+                className="h-10 w-auto"
               />
 
             </div>
@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
             {/* WhatsApp Button */}
 
             <a
-              href="https://wa.me/2349123259866?text=Hello%20MetroBlue%20Tech%20Systems,%20I%20would%20like%20to%20enquire%20about%20your%20services."
+              href="https://wa.me/2349079125273?text=Hello%20MetroBlue%20Tech%20Systems,%20I%20would%20like%20to%20enquire%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 bg-green-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-green-700 transition-colors duration-200"
