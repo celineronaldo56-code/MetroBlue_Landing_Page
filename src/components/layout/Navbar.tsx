@@ -1,3 +1,8 @@
+// ==============================
+// NAVBAR COMPONENT (PROFESSIONAL VERSION)
+// Uses centralized colour system for consistency
+// ==============================
+
 // Import React and required hooks
 import React, { useState, useEffect } from "react"
 
@@ -7,19 +12,18 @@ import { motion, AnimatePresence } from "framer-motion"
 // Import icons for the mobile menu
 import { Menu, X } from "lucide-react"
 
-// Import the custom hook that detects which section is active
+// Import custom hook for active section detection
 import { useActiveSection } from "../../hooks/useActiveSection"
 
-// Import the type used for navigation links
+// Import navigation link type
 import type { NavLink } from "../../types"
 
-// Import the MetroBlue logo image
+// Import your centralized colour system
+import { colours } from "../../styles/tokens"
 
-
-
-
-
-// List of links that will appear in the navbar
+// ==============================
+// NAVIGATION LINKS CONFIG
+// ==============================
 const navLinks: NavLink[] = [
   { label: "Home", href: "hero" },
   { label: "Services", href: "services" },
@@ -29,24 +33,24 @@ const navLinks: NavLink[] = [
   { label: "Contact", href: "contact" },
 ]
 
-
-
+// ==============================
+// NAVBAR COMPONENT
+// ==============================
 export const Navbar: React.FC = () => {
 
-  // Detect if page is scrolled
+  // Track scroll state (used for styling navbar on scroll)
   const [scrolled, setScrolled] = useState(false)
 
-  // Mobile menu state
+  // Mobile menu open/close state
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Detect active section
+  // Get currently active section
   const activeSection = useActiveSection(navLinks.map((l) => l.href))
 
-
-
-  // Detect scroll
+  // ==============================
+  // HANDLE SCROLL EFFECT
+  // ==============================
   useEffect(() => {
-
     const onScroll = () => {
       setScrolled(window.scrollY > 80)
     }
@@ -54,18 +58,15 @@ export const Navbar: React.FC = () => {
     window.addEventListener("scroll", onScroll, { passive: true })
 
     return () => window.removeEventListener("scroll", onScroll)
-
   }, [])
 
-
-
-  // Smooth scroll function (FIXED)
+  // ==============================
+  // SMOOTH SCROLL FUNCTION
+  // ==============================
   const scrollTo = (href: string) => {
-
     const element = document.getElementById(href)
 
     if (element) {
-
       const navbarHeight = 80
 
       const elementPosition = element.offsetTop - navbarHeight
@@ -76,102 +77,126 @@ export const Navbar: React.FC = () => {
       })
     }
 
-    // Close mobile menu
+    // Close mobile menu after navigation
     setMobileOpen(false)
   }
 
-
-
   return (
 
+    // ==============================
+    // HEADER CONTAINER
+    // ==============================
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-primary/96 backdrop-blur-md shadow-lg shadow-black/20"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        backgroundColor: scrolled ? colours.primary : "transparent",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
+        boxShadow: scrolled ? "0 8px 20px rgba(0,0,0,0.2)" : "none",
+      }}
     >
 
-      {/* Main Navigation */}
+      {/* MAIN NAVIGATION */}
       <nav className="container-xl flex items-center justify-between h-20">
 
-        {/* LOGO */}
+        {/* LOGO SECTION */}
         <button
           onClick={() => scrollTo("hero")}
           className="flex items-center gap-2.5"
         >
-
-        <img src="public/image/logo.png" alt="Logo" className="h-12 w-auto" />
-
-        
+          <img
+            src="/image/logo.png"
+            alt="Logo"
+            className="h-12 w-auto"
+          />
         </button>
 
-
-
-        {/* DESKTOP NAV */}
+        {/* ============================== */}
+        {/* DESKTOP NAVIGATION */}
+        {/* ============================== */}
         <ul className="hidden lg:flex items-center gap-1">
 
           {navLinks.map((link) => (
-
             <li key={link.href}>
 
               <button
                 onClick={() => scrollTo(link.href)}
-                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                  activeSection === link.href
-                    ? "text-secondary"
-                    : "text-green-500 hover:text-white"
-                }`}
+                className="relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200"
+                style={{
+                  color:
+                    activeSection === link.href
+                      ? colours.secondary
+                      : colours.light,
+                }}
+                onMouseEnter={(e) => {
+                  if (activeSection !== link.href) {
+                    e.currentTarget.style.color = colours.white
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeSection !== link.href) {
+                    e.currentTarget.style.color = colours.light
+                  }
+                }}
               >
-
                 {link.label}
 
+                {/* Active underline animation */}
                 {activeSection === link.href && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-secondary rounded-full"
+                    className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full"
+                    style={{ backgroundColor: colours.secondary }}
                   />
                 )}
 
               </button>
 
             </li>
-
           ))}
 
         </ul>
 
-
-
-        {/* DESKTOP BUTTON */}
+        {/* ============================== */}
+        {/* DESKTOP CTA BUTTON */}
+        {/* ============================== */}
         <div className="hidden lg:block">
 
           <button
             onClick={() => scrollTo("contact")}
-            className="bg-secondary text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#0d87be] transition-colors duration-200 shadow-md shadow-secondary/30"
+            className="text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+            style={{
+              backgroundColor: colours.secondary,
+              color: colours.white,
+              boxShadow: `0 4px 12px ${colours.secondary}66`,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = colours.primary
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = colours.secondary
+            }}
           >
             Get a Free Quote
           </button>
 
         </div>
 
-
-
+        {/* ============================== */}
         {/* MOBILE MENU BUTTON */}
+        {/* ============================== */}
         <button
-          className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+          className="lg:hidden p-2 rounded-lg transition-colors"
+          style={{ color: colours.white }}
           onClick={() => setMobileOpen((prev) => !prev)}
         >
-
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-
         </button>
 
       </nav>
 
-
-
+      {/* ============================== */}
       {/* MOBILE MENU */}
+      {/* ============================== */}
       <AnimatePresence>
 
         {mobileOpen && (
@@ -181,7 +206,11 @@ export const Navbar: React.FC = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden overflow-hidden bg-primary/98 backdrop-blur-md border-t border-white/10"
+            className="lg:hidden overflow-hidden border-t"
+            style={{
+              backgroundColor: colours.primary,
+              borderColor: colours.border,
+            }}
           >
 
             <ul className="container-xl py-4 flex flex-col gap-1">
@@ -192,29 +221,35 @@ export const Navbar: React.FC = () => {
 
                   <button
                     onClick={() => scrollTo(link.href)}
-                    className={`w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
-                      activeSection === link.href
-                        ? "text-secondary bg-white/5"
-                        : "text-white/75 hover:text-white hover:bg-white/5"
-                    }`}
+                    className="w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-colors"
+                    style={{
+                      color:
+                        activeSection === link.href
+                          ? colours.secondary
+                          : colours.light,
+                      backgroundColor:
+                        activeSection === link.href
+                          ? `${colours.white}0D`
+                          : "transparent",
+                    }}
                   >
-
                     {link.label}
-
                   </button>
 
                 </li>
 
               ))}
 
-
-
               {/* MOBILE CTA */}
               <li className="mt-2">
 
                 <button
                   onClick={() => scrollTo("contact")}
-                  className="w-full bg-secondary text-white text-sm font-semibold px-4 py-3 rounded-xl hover:bg-[#0d87be] transition-colors"
+                  className="w-full text-sm font-semibold px-4 py-3 rounded-xl transition-colors"
+                  style={{
+                    backgroundColor: colours.secondary,
+                    color: colours.white,
+                  }}
                 >
                   Get a Free Quote
                 </button>
